@@ -1,0 +1,13 @@
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\service\DeleteMenuService.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\dto\MenuDto.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\controller\MenuController.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\model\Menu.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\service\ListMenuService.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\dto\DishDto.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\service\CreateMenuService.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\MenuServerApplication.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\controller\MenuNotFoundException.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\model\Dish.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\repository\DishRepository.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\repository\MenuRepository.java
+D:\M2\Projets\CI_CD\fabrique-a-menu\menu-server\src\main\java\com\cicdlectures\menuserver\controller\MenuNotFoundAdvice.java
