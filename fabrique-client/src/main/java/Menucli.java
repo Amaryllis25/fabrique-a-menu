@@ -11,12 +11,9 @@ import picocli.CommandLine.Spec;
 )
 public class Menucli implements Runnable {
 
-    @Spec CommandSpec spec;
-
     @Override
     public void run() {
-        System.out.println("Hello World!");
-        throw new ParameterException(spec.commandLine(), "Specify a subcommand");
+        System.out.println("Use help to know all commands");
     }
 
     public static void main(String[] args) {

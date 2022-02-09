@@ -7,8 +7,6 @@ import picocli.CommandLine.Command;
 )
 public class ListMenus implements Runnable {
 
-    private listMenus;
-
     public void run() {
         System.out.println("list-menus!");
     }
