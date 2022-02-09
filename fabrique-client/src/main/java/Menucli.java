@@ -2,8 +2,8 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(
-        name = "hello",
-        description = {"Says hello"}
+        name = "menucli",
+        description = {"link with menu-server API"}
 )
 public class Menucli implements Runnable {
 
