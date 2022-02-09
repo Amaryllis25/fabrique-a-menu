@@ -36,7 +36,7 @@ jobs:
       - name: Verify tests
         run: mvn -f menu-server/pom.xml clean verify
   github-release-menu-server:
-    name: Realease on Github
+    name: Release on Github
     runs-on: ubuntu-20.04
     needs: [build-menu-server, tests-menu-server]
     if: contains(github.ref, 'refs/tags/v')
@@ -90,7 +90,7 @@ jobs:
       - name: Verify tests
         run: mvn -f fabrique-client/pom.xml clean verify
   github-release-fabrique-client:
-      name: Realease on Github for fabrique-client
+      name: Release on Github for fabrique-client
       runs-on: ubuntu-20.04
       needs: [build-fabrique-client, tests-fabrique-client]
       if: contains(github.ref, 'refs/tags/v')
