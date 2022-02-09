@@ -101,7 +101,7 @@ jobs:
           with:
             name: fabrique-client
         - name: Create Release Client
-          id: create_release_client
+          id: create_release
           uses: actions/create-release@v1
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
