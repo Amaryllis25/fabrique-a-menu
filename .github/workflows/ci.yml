@@ -89,7 +89,7 @@ jobs:
           java-version: '11'
       - name: Verify tests
         run: mvn -f fabrique-client/pom.xml clean verify
-github-release-menu-server:
+github-release-fabrique-client:
     name: Realease on Github
     runs-on: ubuntu-20.04
     needs: [build-fabrique-client, tests-fabrique-client]
