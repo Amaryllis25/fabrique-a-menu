@@ -1,2 +1,2 @@
-Main-Class: helloworld
+Main-Class: Menucli
 Class-Path: target/classes/
