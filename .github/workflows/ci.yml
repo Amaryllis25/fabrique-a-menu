@@ -38,7 +38,7 @@ jobs:
   github-release-menu-server:
     name: Realease on Github
     runs-on: ubuntu-20.04
-    needs: build
+    needs: build-menu-server
     if: contains(github.ref, 'refs/tags/v')
     steps:
       - uses: actions/checkout@v2
