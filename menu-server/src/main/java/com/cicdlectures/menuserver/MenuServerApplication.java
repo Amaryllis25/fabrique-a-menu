@@ -9,7 +9,6 @@ public class MenuServerApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(MenuServerApplication.class, args);
-    CommandLine.run(new DeleteMenuService(), args);
   }
 
 }
