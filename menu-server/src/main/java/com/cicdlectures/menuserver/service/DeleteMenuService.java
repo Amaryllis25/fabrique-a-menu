@@ -1,19 +1,25 @@
 package com.cicdlectures.menuserver.service;
 
-import picocli.CommandLine;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@CommandLine.Command(
-        name = "hello",
-        description = "Says hello"
-)
-public class DeleteMenuService implements Runnable {
+import java.io.Console;
 
-    public static void main(String[] args) {
-        CommandLine.run(new DeleteMenuService(), args);
+
+import com.cicdlectures.menuserver.repository.MenuRepository;
+
+@Service
+public class DeleteMenuService {
+
+    private final MenuRepository menuRepository;
+
+    @Autowired
+    public DeleteMenuService(MenuRepository menuRepository) {
+        this.menuRepository = menuRepository;
     }
 
-    @Override
-    public void run() {
-        System.out.println("Hello World!");
+    public void deleteMenu(long id) throws IdNotFoundException{
+        if (menuRepository.existsById(id)) menuRepository.deleteById(id);
+        else throw new IdNotFoundException(id);
     }
 }

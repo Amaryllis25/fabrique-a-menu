@@ -15,14 +15,29 @@ import java.net.http.HttpResponse;
 )
 public class DeleteMenu implements Runnable {
 
-    @Option(names = {"-m", "--message"})
-    private String message;
+    @CommandLine.Parameters(defaultValue = "0", description = "test")
+    public String message1;
 
-    @Override
     public void run() {
-        System.out.println("Committing files in the staging area, how wonderful?");
-        if (message != null) {
-            System.out.println("The commit message is " + message);
+        try {
+            System.out.println(message1);
+
+            HttpClient client = HttpClient.newHttpClient();
+
+            HttpRequest request = HttpRequest.newBuilder(URI.create("https://menuserverapp.herokuapp.com/menus/" + message1))
+                    .DELETE()
+                    .build();
+
+            // use the client to send the request
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // the response:
+            System.out.println(response.statusCode());
+            System.out.println(response.body());
+        }
+        catch (IOException e) {
+        }
+        catch (InterruptedException e) {
         }
     }
 } 
