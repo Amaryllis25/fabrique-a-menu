@@ -20,8 +20,6 @@ public class DeleteMenu implements Runnable {
 
     public void run() {
         try {
-            System.out.println(message1);
-
             HttpClient client = HttpClient.newHttpClient();
 
             HttpRequest request = HttpRequest.newBuilder(URI.create("https://menuserverapp.herokuapp.com/menus/" + message1))
