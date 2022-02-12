@@ -1,6 +1,5 @@
 package com.cicdlectures.menuserver;
 
-import com.cicdlectures.menuserver.service.DeleteMenuService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import picocli.CommandLine;
