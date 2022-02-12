@@ -1,0 +1,2 @@
+Main-Class: DeleteMenu
+Class-Path: target/classes/
