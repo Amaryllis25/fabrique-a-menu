@@ -6,5 +6,5 @@
 mvn clean package
 jar --create --manifest=MANIFEST.mf --file menucli.jar target/classes/Menucli.class
 java -jar menucli.jar
-java -cp "menucli.jar;C:\Users\clair\.m2\repository\info\picocli\picocli\4.6.2\picocli-4.6.2.jar" Menucli
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" Menucli list-menus
 ```
