@@ -1,6 +1,7 @@
 package com.cicdlectures.menucli.subCommand;
 
-import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 import java.io.IOException;
 import java.net.URI;
@@ -8,15 +9,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-@CommandLine.Command(
+@Command(
         name = "add-menu",
         description = {"Add a menu rapidly"}
 )
 public class AddMenu implements Runnable{
 
-    @CommandLine.Option(names = "--server-url", description = "Server where the menus are")
+    @Option(names = "--server-url", description = "Server where the menus are")
     private String server = "https://fabrique-menu.herokuapp.com";
-    
+
     public void run() {
 
         String menu = "{\"name\": \"Menu spécial scout\", \"dishes\": [{\"name\": \"Salade composée assaisonné aux herbes de prairies\"},{\"name\": \"Poisson acheté faute de prise\"}, {\"name\": \"Bananes au chocolat, ouf !\"}]}";
