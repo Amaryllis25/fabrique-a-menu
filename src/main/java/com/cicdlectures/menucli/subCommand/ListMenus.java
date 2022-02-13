@@ -1,17 +1,18 @@
 package com.cicdlectures.menucli.subCommand;
 
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.IOException;
-import java.net.URI;
+import java.lang.String;
 import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.lang.String;
+import java.net.URI;
 
 import org.json.*;
+
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 @Command(
         name = "list-menus",
@@ -42,7 +43,7 @@ public class ListMenus implements Runnable {
             try {
                 JSONArray lstMenus = new JSONArray(response.body());
 
-                // Format output data
+                // Format output data for each menu
                 for (int i = 0; i < lstMenus.length(); i++) {
 
                     JSONObject menu = lstMenus.getJSONObject(i);
@@ -50,6 +51,7 @@ public class ListMenus implements Runnable {
 
                     JSONArray dishes = menu.getJSONArray("dishes");
 
+                    // For each dishes in a menu
                     for (int j = 0; j < dishes.length(); j++) {
                         JSONObject dish = dishes.getJSONObject(j);
                         System.out.println(dish.getString("name"));

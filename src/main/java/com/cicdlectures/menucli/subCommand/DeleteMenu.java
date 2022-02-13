@@ -1,15 +1,16 @@
 package com.cicdlectures.menucli.subCommand;
 
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-
 import java.io.IOException;
-import java.net.URI;
+import java.lang.String;
 import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.net.URI;
+
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 @Command(
         name = "delete-menu",
@@ -23,10 +24,13 @@ public class DeleteMenu implements Runnable {
     @CommandLine.Parameters(defaultValue = "0", description = "test")
     public String id;
 
+    // create a client
+    private HttpClient client = HttpClient.newHttpClient();
+
+
     public void run() {
         try {
-            HttpClient client = HttpClient.newHttpClient();
-
+            // create a request
             HttpRequest request = HttpRequest
                 .newBuilder(URI.create(this.server + "/menus/" + id))
                 .DELETE()
@@ -35,9 +39,8 @@ public class DeleteMenu implements Runnable {
             // use the client to send the request
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            // the response:
-            System.out.println(response.statusCode());
-            System.out.println(response.body());
+            // the response
+            System.out.println("Menu " + id + " is delete\n");
         }
         catch (IOException e) {
         }
