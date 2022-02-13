@@ -1,2 +1,3 @@
-Menucli.class
-ListMenus.class
+com\cicdlectures\menucli\Menucli.class
+com\cicdlectures\menucli\subCommand\DeleteMenu.class
+com\cicdlectures\menucli\subCommand\ListMenus.class
