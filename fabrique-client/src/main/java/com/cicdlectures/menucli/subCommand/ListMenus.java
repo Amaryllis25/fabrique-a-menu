@@ -19,12 +19,15 @@ import org.json.*;
 )
 public class ListMenus implements Runnable {
 
+    @CommandLine.Option(names = "--server-url", description = "Server where the menus are")
+    private String server = "https://fabrique-menu.herokuapp.com";
+
     // create a client
     private HttpClient client = HttpClient.newHttpClient();
 
     // create a request
     private HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("https://fabrique-menu.herokuapp.com/menus"))
+        .uri(URI.create(this.server + "/menus"))
         .header("Content-Type", "application/json")
         .GET()
         .build();
