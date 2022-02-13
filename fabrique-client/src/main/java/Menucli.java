@@ -18,6 +18,7 @@ public class Menucli implements Runnable {
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new Menucli()).execute(args);
+        System.out.println(exitCode);
         System.exit(exitCode);
     }
 }

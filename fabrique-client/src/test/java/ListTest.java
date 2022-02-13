@@ -10,10 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ListTest {
 
-    CommandLine cmd;
+    private String[] args = {"menucli","list-menus"};
+    private CommandLine cmd = new CommandLine(args);
 
     @Test
-    @DisplayName("get all menus with custom url")
-    public void listMenuUrl() {
+    @DisplayName("test if command list-menus works")
+    public void listMenuTest() {
+        int exitCode = cmd.execute();
+        System.exit(exitCode);
+        assertEquals(exitCode, 0);
     }
 }

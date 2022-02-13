@@ -18,10 +18,10 @@ import org.json.*;
 public class ListMenus implements Runnable {
 
     // create a client
-    HttpClient client = HttpClient.newHttpClient();
+    private HttpClient client = HttpClient.newHttpClient();
 
     // create a request
-    HttpRequest request = HttpRequest.newBuilder()
+    private HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://fabrique-menu.herokuapp.com/menus"))
         .header("Content-Type", "application/json")
         .GET()
