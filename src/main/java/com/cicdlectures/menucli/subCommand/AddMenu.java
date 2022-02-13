@@ -20,7 +20,7 @@ public class AddMenu implements Runnable{
 
     public void run() {
 
-        String menu = "{\"name\": \"Menu spécial scout\", \"dishes\": [{\"name\": \"Salade composée assaisonné aux herbes de prairies\"},{\"name\": \"Poisson acheté faute de prise\"}, {\"name\": \"Bananes au chocolat, ouf !\"}]}";
+        String menu = "{\"name\": \"Menu spécial scout\", \"dishes\": [{\"name\": \"Entrée : Salade composée assaisonné aux herbes de prairies\"},{\"name\": \"Plat : Poisson acheté faute de prise\"}, {\"name\": \"Dessert : Bananes au chocolat, ouf !\"}]}";
 
         try {
             HttpClient client = HttpClient.newHttpClient();

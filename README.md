@@ -23,13 +23,6 @@
 
 <br>
 
-#### Add a menu in menu serveur
-```bash
-curl -H "Content-Type: application/json" --data-raw '{"name": "Menu spécial scout", "dishes": [{"name": "Salade composée assaisonné aux herbes de prairies"},{"name": "Poisson acheté faute de prise"}, {"name": "Bananes au chocolat, ouf !"}]}' https://fabrique-menu.herokuapp.com/menus
-```
-
-<br>
-
 #### Here an overview of the commands :
 
 <br>
@@ -60,6 +53,10 @@ java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlec
 https://menuserverapp.herokuapp.com id
 ```
 
+##### - add-menu : bonus ! add a special scout menu
+```bash
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus add menu
+```
 
 <br>
 
