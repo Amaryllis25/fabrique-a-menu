@@ -1,0 +1,2 @@
+Main-Class: com.cicdlectures.menucli.Menucli
+Class-Path: target/classes/
