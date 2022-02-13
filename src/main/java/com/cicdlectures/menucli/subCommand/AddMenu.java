@@ -16,10 +16,7 @@ public class AddMenu implements Runnable{
 
     @CommandLine.Option(names = "--server-url", description = "Server where the menus are")
     private String server = "https://fabrique-menu.herokuapp.com";
-
-    @CommandLine.Parameters(defaultValue = "0", description = "test")
-    public String message1;
-
+    
     public void run() {
 
         String menu = "{\"name\": \"Menu spécial scout\", \"dishes\": [{\"name\": \"Salade composée assaisonné aux herbes de prairies\"},{\"name\": \"Poisson acheté faute de prise\"}, {\"name\": \"Bananes au chocolat, ouf !\"}]}";
