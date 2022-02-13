@@ -49,6 +49,18 @@ java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlec
 java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli delete-menus id
 ```
 
+##### --server-url option : change server
+```bash
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus --server-url=
+https://menuserverapp.herokuapp.com 
+```
+
+```bash
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli delete-menus --server-url=
+https://menuserverapp.herokuapp.com id
+```
+
+
 <br>
 
 #### Creation of new version of the project

@@ -17,6 +17,9 @@ import java.net.http.HttpResponse;
 )
 public class DeleteMenu implements Runnable {
 
+    @Option(names = "--server-url", description = "Server where the menus are")
+    private String server = "https://fabrique-menu.herokuapp.com/menus";
+
     @CommandLine.Parameters(defaultValue = "0", description = "test")
     public String message1;
 
@@ -25,7 +28,7 @@ public class DeleteMenu implements Runnable {
             HttpClient client = HttpClient.newHttpClient();
 
             HttpRequest request = HttpRequest
-                .newBuilder(URI.create("https://menuserverapp.herokuapp.com/menus/" + message1))
+                .newBuilder(URI.create(this.server + "/menus/" + message1))
                 .DELETE()
                 .build();
 

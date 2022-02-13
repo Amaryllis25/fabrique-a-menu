@@ -52,4 +52,11 @@ public class ListMenuTests {
         int exitCode = cmd.execute("list-menus");
         assertEquals(0, exitCode);
     }
+
+    @Test
+    @DisplayName("list menus with specific url")
+    public void listMenuUrlTest() {
+        int exitCode = cmd.execute("list-menus", "--server-url=https://menuserverapp.herokuapp.com");
+        assertEquals(0, exitCode);
+    }
 }
