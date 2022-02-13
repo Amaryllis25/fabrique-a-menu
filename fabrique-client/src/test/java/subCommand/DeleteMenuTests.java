@@ -51,7 +51,6 @@ public class DeleteMenuTests {
     @DisplayName("delete a menu")
     public void deleteMenuTest() {
         int exitCode = cmd.execute("delete-menus", "3");
-        System.out.println(exitCode);
         assertEquals(0, exitCode);
     }
 }

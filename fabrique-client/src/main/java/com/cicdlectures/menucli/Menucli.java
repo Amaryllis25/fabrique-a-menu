@@ -2,26 +2,20 @@ package com.cicdlectures.menucli;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Model.CommandSpec;
-import picocli.CommandLine.ParameterException;
-import picocli.CommandLine.Spec;
-import com.cicdlectures.menucli.subCommand.DeleteMenu;
 
+import com.cicdlectures.menucli.subCommand.ListMenus;
+import com.cicdlectures.menucli.subCommand.DeleteMenu;
 
 @Command(
     name = "menucli",
     description = {"link with menu-server API"},
-    subcommands = { DeleteMenu.class, CommandLine.HelpCommand.class }
+    subcommands = { ListMenus.class, DeleteMenu.class, CommandLine.HelpCommand.class }
 )
 public class Menucli implements Runnable {
 
-    @Spec
-    CommandSpec spec;
-
     @Override
     public void run() {
-        System.out.println("Hello World!");
-        throw new ParameterException(spec.commandLine(), "Specify a subcommand");
+        System.out.println("Use help to know all commands");
     }
 
     public static void main(String[] args) {
