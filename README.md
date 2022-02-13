@@ -2,47 +2,41 @@
 
 <br>
 
-#### Dependances of the project
+#### 1. Dependances of the project
 
-- Spring boot and ... :
-  - spring-boot-starter-data-jpa
-  - spring-boot-starter-web
-  - spring-boot-starter-test
-- Lombok
-- H2 Database
-- Picocli
-- Json
-- maven-failsafe-plugin
+- spring-boot-starter-test
+- picocli
+- json
 
 <br>
 
-#### Plugins maven
+#### 2. Plugins maven
 
 - spring-boot-maven-plugin
 - maven-surefire-plugin
 
 <br>
 
-#### Here an overview of the commands :
+#### 3. Here an overview of the commands :
 
 <br>
 
-##### - help : list all available commands
+- help : list all available commands
 ```bash
 java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli help
 ```
 
-##### - list-menus : list all menus
+- list-menus : list all menus
 ```bash
 java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus
 ```
 
-##### - delete-menus : delete a menu
+- delete-menus : delete a menu
 ```bash
 java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli delete-menus id
 ```
 
-##### --server-url option : change server
+- --server-url option : change server
 ```bash
 java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus --server-url=
 https://menuserverapp.herokuapp.com 
@@ -53,14 +47,14 @@ java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlec
 https://menuserverapp.herokuapp.com id
 ```
 
-##### - add-menu : bonus ! add a special scout menu
+- add-menu : bonus ! add a special scout menu
 ```bash
-java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus add menu
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus add-menu
 ```
 
 <br>
 
-#### Creation of new version of the project
+#### 4. Creation of new version of the project
 
 ```bash
 cd fabrique-client
@@ -70,7 +64,18 @@ jar --create --manifest=MANIFEST.mf --file menucli.jar target/classes/com/cicdle
 
 <br>
 
-#### Play tests
+#### 5. Play tests
+
+<br>
+
+- Unit tests :
 ```bash
 mvn test
+```
+
+<br>
+
+- Integration tests :
+```bash
+mvn integration-test
 ```

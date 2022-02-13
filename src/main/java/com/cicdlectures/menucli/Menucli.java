@@ -1,12 +1,12 @@
 package com.cicdlectures.menucli;
 
+import com.cicdlectures.menucli.subCommand.AddMenu;
+import com.cicdlectures.menucli.subCommand.DeleteMenu;
+import com.cicdlectures.menucli.subCommand.ListMenus;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-
-import com.cicdlectures.menucli.subCommand.ListMenus;
-import com.cicdlectures.menucli.subCommand.DeleteMenu;
-import com.cicdlectures.menucli.subCommand.AddMenu;
 
 @Command(
     name = "menucli",
@@ -21,6 +21,8 @@ public class Menucli implements Runnable {
     }
 
     public static void main(String[] args) {
+
+        // Launch command line menucli
         int exitCode = new CommandLine(new Menucli()).execute(args);
         System.exit(exitCode);
     }

@@ -1,17 +1,14 @@
 package subCommand;
 
-import org.junit.jupiter.api.*;
-import picocli.CommandLine;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.cicdlectures.menucli.Menucli;
-
-import org.junit.jupiter.api.AfterEach;  // JUnit 5
-import org.junit.jupiter.api.BeforeEach; // JUnit 5
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import picocli.CommandLine;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -30,8 +27,7 @@ public class DeleteMenuTests {
         this.cmd = new CommandLine(app);
     }
 
-    //@Before   // JUnit 4
-    @BeforeEach // JUnit 5
+    @BeforeEach
     public void setUpStreams() {
         out.reset();
         err.reset();
@@ -39,8 +35,7 @@ public class DeleteMenuTests {
         System.setErr(new PrintStream(err));
     }
 
-    //@After   // JUnit 4
-    @AfterEach // JUnit 5
+    @AfterEach
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setErr(originalErr);
