@@ -47,11 +47,4 @@ public class AddMenuTests {
         int exitCode = cmd.execute("add-menu");
         assertEquals(0, exitCode);
     }
-
-    @Test
-    @DisplayName("add a menu")
-    public void addMenuTestError() {
-        int exitCode = cmd.execute("add-menus");
-        assertEquals(2, exitCode);
-    }
 }
