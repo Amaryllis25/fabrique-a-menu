@@ -1,18 +1,25 @@
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Model.CommandSpec;
+import picocli.CommandLine.ParameterException;
+import picocli.CommandLine.Spec;
 
 @Command(
-        name = "hello",
-        description = {"Says hello"}
+        name = "menucli",
+        subcommands = { ListMenus.class, CommandLine.HelpCommand.class },
+        description = {"link with menu-server API"}
 )
 public class Menucli implements Runnable {
 
-    public static void main(String[] args) {
-        CommandLine.run(new Menucli(), args);
+    @Override
+    public void run() {
+        System.out.println("Use help to know all commands");
     }
 
-    public void run() {
-        System.out.println("Hello World!");
+    public static void main(String[] args) {
+        int exitCode = new CommandLine(new Menucli()).execute(args);
+        System.out.println(exitCode);
+        System.exit(exitCode);
     }
 }
 
