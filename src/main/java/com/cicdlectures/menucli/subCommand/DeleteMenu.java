@@ -12,7 +12,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 @Command(
-        name = "delete-menus",
+        name = "delete-menu",
         description = {"Delete a menu"}
 )
 public class DeleteMenu implements Runnable {
@@ -21,14 +21,14 @@ public class DeleteMenu implements Runnable {
     private String server = "https://fabrique-menu.herokuapp.com/menus";
 
     @CommandLine.Parameters(defaultValue = "0", description = "test")
-    public String message1;
+    public String id;
 
     public void run() {
         try {
             HttpClient client = HttpClient.newHttpClient();
 
             HttpRequest request = HttpRequest
-                .newBuilder(URI.create(this.server + "/menus/" + message1))
+                .newBuilder(URI.create(this.server + "/menus/" + id))
                 .DELETE()
                 .build();
 

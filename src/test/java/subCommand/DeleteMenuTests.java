@@ -49,14 +49,23 @@ public class DeleteMenuTests {
     @Test
     @DisplayName("delete a menu")
     public void deleteMenuTest() {
-        int exitCode = cmd.execute("delete-menus", "3");
+        int exitCode = cmd.execute("delete-menu", "3");
+        assertEquals(0, exitCode);
+    }
+
+    @Test
+    @DisplayName("delete a menu")
+    public void deleteMenuTestWithoutId() {
+        int exitCode = cmd.execute("delete-menu");
         assertEquals(0, exitCode);
     }
 
     @Test
     @DisplayName("delete menus with specific url")
     public void listMenuUrlTest() {
-        int exitCode = cmd.execute("delete-menus", "--server-url=https://menuserverapp.herokuapp.com", "1");
+        int exitCode = cmd.execute("delete-menu", "--server-url=https://menuserverapp.herokuapp.com", "1");
         assertEquals(0, exitCode);
     }
+
+
 }
