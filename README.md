@@ -35,7 +35,7 @@ java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlec
 ```bash
 java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli delete-menus id
 ```
-A noter qu'il semble y avoir un problème du côté du serveur : lorsqu'il y a un menu dans le repository, celui-ci se supprime très bien, cependant lorsque plusieurs sont présents il y a une erreur interne au serveur.
+Note that there seems to be a problem on the server side: when there is a menu in the repository, it deletes itself very well, however when several are present there is an internal server error.
 
 - --server-url option : change server
 ```bash
