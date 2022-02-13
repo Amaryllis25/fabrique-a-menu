@@ -36,17 +36,17 @@ curl -H "Content-Type: application/json" --data-raw '{"name": "Menu spécial sco
 
 ##### - help : list all available commands
 ```bash
-java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" Menucli help
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli help
 ```
 
 ##### - list-menus : list all menus
 ```bash
-java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" Menucli list-menus
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli list-menus
 ```
 
 ##### - delete-menus : delete a menu
 ```bash
-java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" Menucli delete-menus/{id}
+java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" com.cicdlectures.menucli.Menucli delete-menus id
 ```
 
 <br>
@@ -56,10 +56,12 @@ java -cp "menucli.jar;libs\json-20211205.jar;libs\picocli-4.6.2.jar" Menucli del
 ```bash
 cd fabrique-client
 mvn clean package
-jar --create --manifest=MANIFEST.mf --file menucli.jar target/classes/Menucli.class
-java -jar menucli.jar
+jar --create --manifest=MANIFEST.mf --file menucli.jar target/classes/com/cicdlectures/menucli/Menucli.class
 ```
 
 <br>
 
 #### Play tests
+```bash
+mvn test
+```
