@@ -1,17 +1,14 @@
 package subCommand;
 
-import org.junit.jupiter.api.*;
-import picocli.CommandLine;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.cicdlectures.menucli.Menucli;
-
-import org.junit.jupiter.api.AfterEach;  // JUnit 5
-import org.junit.jupiter.api.BeforeEach; // JUnit 5
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import picocli.CommandLine;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -30,8 +27,7 @@ public class DeleteMenuTests {
         this.cmd = new CommandLine(app);
     }
 
-    //@Before   // JUnit 4
-    @BeforeEach // JUnit 5
+    @BeforeEach
     public void setUpStreams() {
         out.reset();
         err.reset();
@@ -39,8 +35,7 @@ public class DeleteMenuTests {
         System.setErr(new PrintStream(err));
     }
 
-    //@After   // JUnit 4
-    @AfterEach // JUnit 5
+    @AfterEach
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setErr(originalErr);
@@ -49,14 +44,23 @@ public class DeleteMenuTests {
     @Test
     @DisplayName("delete a menu")
     public void deleteMenuTest() {
-        int exitCode = cmd.execute("delete-menus", "3");
+        int exitCode = cmd.execute("delete-menu", "3");
+        assertEquals(0, exitCode);
+    }
+
+    @Test
+    @DisplayName("delete a menu")
+    public void deleteMenuTestWithoutId() {
+        int exitCode = cmd.execute("delete-menu");
         assertEquals(0, exitCode);
     }
 
     @Test
     @DisplayName("delete menus with specific url")
     public void listMenuUrlTest() {
-        int exitCode = cmd.execute("delete-menus", "--server-url=https://menuserverapp.herokuapp.com", "1");
+        int exitCode = cmd.execute("delete-menu", "--server-url=https://menuserverapp.herokuapp.com", "1");
         assertEquals(0, exitCode);
     }
+
+
 }

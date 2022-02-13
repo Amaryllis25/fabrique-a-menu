@@ -12,7 +12,7 @@ import picocli.CommandLine;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ListMenuTests {
+public class AddMenuTests {
 
     CommandLine cmd;
 
@@ -42,16 +42,9 @@ public class ListMenuTests {
     }
 
     @Test
-    @DisplayName("list all menus")
-    public void listMenuTest() {
-        int exitCode = cmd.execute("list-menus");
-        assertEquals(0, exitCode);
-    }
-
-    @Test
-    @DisplayName("list menus with specific url")
-    public void listMenuUrlTest() {
-        int exitCode = cmd.execute("list-menus", "--server-url=https://menuserverapp.herokuapp.com");
+    @DisplayName("add a menu")
+    public void addMenuTest() {
+        int exitCode = cmd.execute("add-menu");
         assertEquals(0, exitCode);
     }
 }

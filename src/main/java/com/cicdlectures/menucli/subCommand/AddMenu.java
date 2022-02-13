@@ -13,38 +13,41 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(
-        name = "delete-menu",
-        description = {"Delete a menu"}
+        name = "add-menu",
+        description = {"Add a menu rapidly"}
 )
-public class DeleteMenu implements Runnable {
+public class AddMenu implements Runnable{
 
     @Option(names = "--server-url", description = "Server where the menus are")
     private String server = "https://fabrique-menu.herokuapp.com";
 
-    @CommandLine.Parameters(defaultValue = "0", description = "test")
-    public String id;
-
     // create a client
     private HttpClient client = HttpClient.newHttpClient();
 
+    // create a fun menu
+    private  String menu = "{\"name\": \"Menu spécial scout\", \"dishes\": [{\"name\": \"Entrée : Salade composée assaisonné aux herbes de prairies\"},{\"name\": \"Plat : Poisson acheté faute de prise\"}, {\"name\": \"Dessert : Bananes au chocolat, ouf !\"}]}";
+
 
     public void run() {
+
         try {
             // create a request
             HttpRequest request = HttpRequest
-                .newBuilder(URI.create(this.server + "/menus/" + id))
-                .DELETE()
-                .build();
+                    .newBuilder()
+                    .uri(URI.create(this.server + "/menus"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(menu))
+                    .build();
 
             // use the client to send the request
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // the response
-            System.out.println("Menu " + id + " is delete\n");
+            System.out.println("Menu spécial scout added !\n");
         }
         catch (IOException e) {
         }
         catch (InterruptedException e) {
         }
     }
-} 
+}
