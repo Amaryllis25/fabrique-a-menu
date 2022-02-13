@@ -23,7 +23,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: fabrique-client
-          path: ./fabrique-client/target/fabrique-client.jar
+          path: ./target/fabrique-client.jar
   tests:
     runs-on: ubuntu-20.04
     steps:
