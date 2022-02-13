@@ -46,11 +46,17 @@ public class DeleteMenuTests {
         System.setErr(originalErr);
     }
 
-
     @Test
     @DisplayName("delete a menu")
     public void deleteMenuTest() {
         int exitCode = cmd.execute("delete-menus", "3");
+        assertEquals(0, exitCode);
+    }
+
+    @Test
+    @DisplayName("delete menus with specific url")
+    public void listMenuUrlTest() {
+        int exitCode = cmd.execute("delete-menus", "--server-url=https://menuserverapp.herokuapp.com", "1");
         assertEquals(0, exitCode);
     }
 }
