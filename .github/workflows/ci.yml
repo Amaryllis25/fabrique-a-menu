@@ -4,7 +4,7 @@ on:
     branches:
       - main
       - dev
-      - hello_world_test
+      - CI_optimize
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
@@ -35,36 +35,38 @@ jobs:
           java-version: '11'
       - name: Verify tests
         run: mvn -f menu-server/pom.xml clean verify
-  github-release-menu-server:
-    name: Realease on Github
-    runs-on: ubuntu-20.04
-    needs: build-menu-server
-    if: contains(github.ref, 'refs/tags/v')
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          name: menu-server
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: .menu-server/menu-server.jar
-          asset_name: menu-server.jar
-          asset_content_type: application/jar
+  
+#  github-release-menu-server:
+#    name: Release on Github
+#    runs-on: ubuntu-20.04
+#    needs: [build-menu-server, tests-menu-server]
+#    if: contains(github.ref, 'refs/tags/v')
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v2
+#        with:
+#          name: menu-server
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: ${{ github.ref }}
+#          release_name: Release ${{ github.ref }}
+#          draft: false
+#          prerelease: false
+#      - name: Upload Release Asset
+#        id: upload-release-asset 
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+#          asset_path: menu-server/target/menu-server.jar
+#          asset_name: menu-server.jar
+#          asset_content_type: application/jar
+
   build-fabrique-client:
     runs-on: ubuntu-20.04
     steps:
@@ -76,7 +78,7 @@ jobs:
       - run:  mvn -f fabrique-client/pom.xml package
       - uses: actions/upload-artifact@v2
         with:
-          name: menu-server
+          name: fabrique-client
           path: ./fabrique-client/target/fabrique-client.jar
   tests-fabrique-client:
     runs-on: ubuntu-20.04
@@ -88,3 +90,33 @@ jobs:
           java-version: '11'
       - name: Verify tests
         run: mvn -f fabrique-client/pom.xml clean verify
+  github-release-fabrique-client:
+      name: Release on Github for fabrique-client
+      runs-on: ubuntu-20.04
+      needs: [build-fabrique-client, tests-fabrique-client]
+      if: contains(github.ref, 'refs/tags/v')
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/download-artifact@v2
+          with:
+            name: fabrique-client
+        - name: Create Release Client
+          id: create_release_client
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
+        - name: Upload Release Asset
+          id: upload-release-asset 
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release_client.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+            asset_path: fabrique-client/target/fabrique-client.jar
+            asset_name: fabrique-client.jar
+            asset_content_type: application/jar
