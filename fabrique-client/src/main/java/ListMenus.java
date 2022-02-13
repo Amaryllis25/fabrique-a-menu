@@ -13,7 +13,7 @@ import org.json.*;
 
 @Command(
         name = "list-menus",
-        description = {"list all menus from menu-server"}
+        description = {"List all menus from menu-server"}
 )
 public class ListMenus implements Runnable {
 
