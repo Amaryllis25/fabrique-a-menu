@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 public class AddMenu implements Runnable{
 
     @CommandLine.Option(names = "--server-url", description = "Server where the menus are")
-    private String server = "https://fabrique-menu.herokuapp.com/menus";
+    private String server = "https://fabrique-menu.herokuapp.com";
 
     @CommandLine.Parameters(defaultValue = "0", description = "test")
     public String message1;
