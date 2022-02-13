@@ -15,7 +15,7 @@ import java.io.PrintStream;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class DeleteMenuTests {
+public class AddMenuTests {
 
     CommandLine cmd;
 
@@ -47,25 +47,16 @@ public class DeleteMenuTests {
     }
 
     @Test
-    @DisplayName("delete a menu")
-    public void deleteMenuTest() {
-        int exitCode = cmd.execute("delete-menu", "3");
+    @DisplayName("add a menu")
+    public void addMenuTest() {
+        int exitCode = cmd.execute("add-menu");
         assertEquals(0, exitCode);
     }
 
     @Test
-    @DisplayName("delete a menu")
-    public void deleteMenuTestWithoutId() {
-        int exitCode = cmd.execute("delete-menu");
-        assertEquals(0, exitCode);
+    @DisplayName("add a menu")
+    public void addMenuTestError() {
+        int exitCode = cmd.execute("add-menus");
+        assertEquals(2, exitCode);
     }
-
-    @Test
-    @DisplayName("delete menus with specific url")
-    public void listMenuUrlTest() {
-        int exitCode = cmd.execute("delete-menu", "--server-url=https://menuserverapp.herokuapp.com", "1");
-        assertEquals(0, exitCode);
-    }
-
-
 }

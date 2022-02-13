@@ -6,11 +6,12 @@ import picocli.CommandLine.Option;
 
 import com.cicdlectures.menucli.subCommand.ListMenus;
 import com.cicdlectures.menucli.subCommand.DeleteMenu;
+import com.cicdlectures.menucli.subCommand.AddMenu;
 
 @Command(
     name = "menucli",
     description = {"link with menu-server API"},
-    subcommands = { ListMenus.class, DeleteMenu.class, CommandLine.HelpCommand.class }
+    subcommands = {AddMenu.class, ListMenus.class, DeleteMenu.class, CommandLine.HelpCommand.class }
 )
 public class Menucli implements Runnable {
 

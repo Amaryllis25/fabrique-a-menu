@@ -54,8 +54,8 @@ public class ListMenus implements Runnable {
                         JSONObject dish = dishes.getJSONObject(j);
                         System.out.println(dish.getString("name"));
                     }
+                    System.out.println("\n");
                 }
-                System.out.println("\n");
             }
             catch(JSONException e){
                 e.printStackTrace();

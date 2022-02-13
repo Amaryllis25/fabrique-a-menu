@@ -1,36 +1,36 @@
 package com.cicdlectures.menucli.subCommand;
 
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 @Command(
-        name = "delete-menu",
-        description = {"Delete a menu"}
+        name = "add-menu",
+        description = {"Add a menu rapidly"}
 )
-public class DeleteMenu implements Runnable {
+public class AddMenu implements Runnable{
 
     @Option(names = "--server-url", description = "Server where the menus are")
     private String server = "https://fabrique-menu.herokuapp.com";
 
-    @CommandLine.Parameters(defaultValue = "0", description = "test")
-    public String id;
-
     public void run() {
+
+        String menu = "{\"name\": \"Menu spécial scout\", \"dishes\": [{\"name\": \"Entrée : Salade composée assaisonné aux herbes de prairies\"},{\"name\": \"Plat : Poisson acheté faute de prise\"}, {\"name\": \"Dessert : Bananes au chocolat, ouf !\"}]}";
+
         try {
             HttpClient client = HttpClient.newHttpClient();
 
             HttpRequest request = HttpRequest
-                .newBuilder(URI.create(this.server + "/menus/" + id))
-                .DELETE()
-                .build();
+                    .newBuilder()
+                    .uri(URI.create(this.server + "/menus"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(menu))
+                    .build();
 
             // use the client to send the request
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -44,4 +44,4 @@ public class DeleteMenu implements Runnable {
         catch (InterruptedException e) {
         }
     }
-} 
+}
